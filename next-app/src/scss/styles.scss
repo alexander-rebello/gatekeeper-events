@@ -1,0 +1,15 @@
+@import "theme/var_overrides";
+
+@import "theme/variables";
+
+@import "bootstrap/bootstrap";
+
+@import "theme/bootswatch";
+
+@import "theme/theme_overrides";
+
+@import "custom/generall.scss";
+
+@import "custom/home.scss";
+
+@import "custom/admin.scss";

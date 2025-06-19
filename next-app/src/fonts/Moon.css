@@ -1,0 +1,23 @@
+@font-face {
+	font-family: "Moon 2.0";
+	src: url(Moon/Moon20-Light.eot) format("embedded-opentype"), url(Moon/Moon20-Light.eot) format("embedded-opentype"), url(Moon/Moon20-Light.woff2) format("woff2"), url(Moon/Moon20-Light.woff) format("woff"), url(Moon/Moon20-Light.ttf) format("truetype"), url(Moon/Moon20-Light.svg) format("svg");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Moon 2.0";
+	src: url(Moon/Moon20-Regular.eot) format("embedded-opentype"), url(Moon/Moon20-Regular.eot) format("embedded-opentype"), url(Moon/Moon20-Regular.woff2) format("woff2"), url(Moon/Moon20-Regular.woff) format("woff"), url(Moon/Moon20-Regular.ttf) format("truetype"), url(Moon/Moon20-Regular.svg) format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Moon 2.0";
+	src: url(Moon/Moon20-Bold.eot) format("embedded-opentype"), url(Moon/Moon20-Bold.eot) format("embedded-opentype"), url(Moon/Moon20-Bold.woff2) format("woff2"), url(Moon/Moon20-Bold.woff) format("woff"), url(Moon/Moon20-Bold.ttf) format("truetype"), url(Moon/Moon20-Bold.svg) format("svg");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}

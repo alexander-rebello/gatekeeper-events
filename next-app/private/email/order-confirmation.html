@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Gatekeeper</title>
+		<style media="all" type="text/css">
+			@media only screen and (max-width: 500px) {
+				.wrapper {
+					padding: 12px !important;
+				}
+
+				.content {
+					padding: 0 !important;
+				}
+
+				.container {
+					width: 100% !important;
+				}
+
+				.btn table {
+					max-width: 100% !important;
+					width: 100% !important;
+				}
+
+				.btn a {
+					max-width: 100% !important;
+					width: 100% !important;
+				}
+			}
+			@media all {
+				.ExternalClass {
+					width: 100%;
+				}
+
+				.ExternalClass,
+				.ExternalClass p,
+				.ExternalClass span,
+				.ExternalClass font,
+				.ExternalClass td,
+				.ExternalClass div {
+					line-height: 100%;
+				}
+
+				.apple-link a {
+					color: inherit !important;
+					font-family: inherit !important;
+					font-size: inherit !important;
+					font-weight: inherit !important;
+					line-height: inherit !important;
+					text-decoration: none !important;
+				}
+
+				#MessageViewBody a {
+					color: inherit;
+					text-decoration: none;
+					font-size: inherit;
+					font-family: inherit;
+					font-weight: inherit;
+					line-height: inherit;
+				}
+			}
+		</style>
+	</head>
+	<body style="font-family: Helvetica, sans-serif; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.3; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #2f4d6c; margin: 0; padding: 0">
+		<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #2f4d6c; width: 100%" width="100%" bgcolor="#2f4d6c">
+			<tr>
+				<td style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top" valign="top">&nbsp;</td>
+				<td class="container" style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; max-width: 600px; padding: 0; padding-top: 32px; width: 600px; margin: 0 auto" width="600" valign="top">
+					<div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 600px; padding: 0">
+						<!-- START CENTERED WHITE CONTAINER -->
+						<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: #eeeeee; border-radius: 0.5em; width: 100%" width="100%">
+							<!-- START MAIN CONTENT AREA -->
+							<tr>
+								<td class="wrapper" style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; box-sizing: border-box; padding: 24px" valign="top">
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 24px; font-weight: normal; margin: 0; margin-bottom: 16px">Hey {{NAME}},</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px">Deine Ticket-Bestellung wurde aufgegeben. Die Bestellnummer lautet:</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px">{{ORDER_ID}}</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0">Event: {{EVENT}}</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0">Ort: {{LOCATION}}</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0">Beginn: {{START}}</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px">Ende: {{END}}</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px">
+										Du erhälst die Tickets, sobald wir die Zahlung erhalten und geprüft haben. Wir bitten um Zahlung innerhalb einer Woche, aber spätestens bis zum {{SALE_END}}
+									</p>
+
+									<table role="presentation" style="width: 100%; border-collapse: collapse; margin-bottom: 16px" width="100%">
+										<tr>
+											<th style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; vertical-align: top; padding: 8px; border: 1px solid #000000" valign="top" align="left">Ticket</th>
+											<th style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; vertical-align: top; padding: 8px; border: 1px solid #000000" valign="top" align="left">Name</th>
+											<th style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; vertical-align: top; padding: 8px; border: 1px solid #000000" valign="top" align="right">Preis</th>
+										</tr>
+										{{ROWS}}
+										<tr>
+											<td style="border: 1px solid #000000" colspan="3">&nbsp;</td>
+										</tr>
+										{{DISCOUNT}}
+										<tr>
+											<td style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; vertical-align: top; padding: 8px; border: 1px solid #000000" valign="top" align="left" colspan="2">Total</td>
+											<td style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; vertical-align: top; padding: 8px; border: 1px solid #000000" valign="top" align="right">{{TOTAL_PRICE}} €</td>
+										</tr>
+									</table>
+
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0; margin-top: 16px">Zahlungsmethode(n):</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px">{{PAYMENT}}</p>
+
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0">Vielen Dank für deine Bestellung!</p>
+									<p style="font-family: Helvetica, sans-serif; color: #000000; font-size: 16px; font-weight: normal; margin: 0">{{SIGNATURE}}</p>
+								</td>
+							</tr>
+
+							<!-- END MAIN CONTENT AREA -->
+						</table>
+
+						<!-- START FOOTER -->
+						<div class="footer" style="clear: both; padding-top: 24px; text-align: center; width: 100%">
+							<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%" width="100%">
+								<tr>
+									<td class="content-block powered-by" style="font-family: Helvetica, sans-serif; vertical-align: top; color: #aaaaaa; font-size: 16px; text-align: center" valign="top" align="center">
+										Sent by <a href="https://www.gatekeeper-events.de/" style="color: #aaaaaa; font-size: 16px; text-align: center">Gatekeeper</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<!-- END FOOTER -->
+
+						<!-- END CENTERED WHITE CONTAINER -->
+					</div>
+				</td>
+				<td style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top" valign="top">&nbsp;</td>
+			</tr>
+		</table>
+	</body>
+</html>

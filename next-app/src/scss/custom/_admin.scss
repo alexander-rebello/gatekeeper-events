@@ -1,0 +1,164 @@
+// Sidebar defaults
+.sidebar aside {
+	z-index: 1040;
+
+	.btn {
+		--bs-bg-opacity: 0;
+		border: 0 !important;
+
+		&:hover,
+		&.active {
+			--bs-bg-opacity: 0.1;
+		}
+	}
+}
+
+// mobile fullscreen sidebar
+@media only screen and (max-width: 576px) {
+	.sidebar aside {
+		width: 100%;
+	}
+}
+
+// mobile overlapping sidebar
+@media only screen and (max-width: 992px) {
+	.sidebar {
+
+		// visible sidebar
+		aside {
+			left: -100%;
+		}
+
+		#sidebarToggle {
+			position: fixed;
+			bottom: 25px;
+			left: 25px;
+		}
+
+		// hidden sidebar
+		&.sidebar-toggled {
+			aside {
+				left: 0;
+			}
+
+			#sidebarToggle {
+				position: static;
+
+				svg {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+}
+
+// desktop sidebar
+@media only screen and (min-width: 993px) {
+	.sidebar {
+
+		// visible sidebar
+		#sidebarToggle svg {
+			transform: rotate(180deg);
+			transition: transform 0.5s ease;
+		}
+
+		aside {
+			width: 15rem;
+			transition: width 0.5s ease;
+
+			.brand {
+				.hide-r {
+					width: 0 !important;
+					overflow: hidden;
+				}
+			}
+
+			.nav .hide {
+				overflow: hidden;
+				white-space: nowrap;
+				transition: all 0.5s ease;
+				width: calc(100% - 21px);
+			}
+		}
+
+		#main,
+		#header {
+			margin-left: 15rem;
+			transition: margin-left 0.5s ease;
+		}
+
+		// hidden sidebar
+		&.sidebar-toggled {
+			#sidebarToggle svg {
+				transform: rotate(0deg);
+			}
+
+			aside {
+				width: 5rem;
+
+				.brand {
+					.hide-r {
+						width: 100% !important;
+					}
+
+					.hide {
+						display: none;
+					}
+				}
+
+				.nav .hide {
+					margin-left: 0 !important;
+					width: 0;
+				}
+			}
+
+			#main,
+			#header {
+				margin-left: 5rem;
+			}
+		}
+	}
+}
+
+.scrollable-orders {
+	background:
+		linear-gradient(#3D3D3E 30%, rgba(255, 255, 255, 0)) center top,
+		linear-gradient(rgba(255, 255, 255, 0), #3D3D3E 70%) center bottom,
+		radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center top,
+		radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center bottom;
+
+	background-repeat: repeat, repeat, repeat, repeat;
+	background-attachment: scroll, scroll, scroll, scroll;
+	background-size: auto, auto, auto, auto;
+	background-repeat: no-repeat;
+	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+	background-attachment: local, local, scroll, scroll;
+}
+
+.scrollable-stats {
+	background:
+		linear-gradient(#303030 30%, rgba(255, 255, 255, 0)) center top,
+		linear-gradient(rgba(255, 255, 255, 0), #303030 70%) center bottom,
+		radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center top,
+		radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center bottom;
+
+	background-repeat: repeat, repeat, repeat, repeat;
+	background-attachment: scroll, scroll, scroll, scroll;
+	background-size: auto, auto, auto, auto;
+	background-repeat: no-repeat;
+	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+	background-attachment: local, local, scroll, scroll;
+
+}
+
+.scrollable-list {
+	height: 0;
+	min-height: 250px;
+	overflow-y: auto;
+}
+
+.table-big {
+	overflow-x: auto;
+	white-space: nowrap;
+	--bs-table-bg: var(--bs-secondary-bg) !important;
+}

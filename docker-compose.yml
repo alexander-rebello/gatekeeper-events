@@ -1,0 +1,70 @@
+name: gatekeeper
+services:
+  database:
+    container_name: gatekeeper-database
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "gatekeeper"
+      POSTGRES_PASSWORD: "PASSWORD"
+      POSTGRES_DB: "gatekeeper"
+    logging:
+      driver: local
+    volumes:
+      - type: bind
+        source: ./data/postgres
+        target: /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  db_backup:
+    container_name: gatekeeper-db_backup
+    depends_on:
+      - database
+    build:
+      context: ./db_backup
+      dockerfile: Dockerfile
+      args:
+        CRON_SCHEDULE: "0 3 * * *"
+    restart: always
+    environment:
+      PGHOST: "gatekeeper-database"
+      PGPORT: "5432"
+      PGUSER: "gatekeeper"
+      PGPASSWORD: "PASSWORD"
+      PGDATABASE: "gatekeeper"
+    volumes:
+      - type: bind
+        source: ./data/backups
+        target: /backups
+
+  next-app:
+    container_name: gatekeeper-next_app
+    depends_on:
+      - database
+    build:
+      context: ./next-app
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_PUBLIC_URL: "https://www.gatekeeper-events.de"
+        NEXT_PUBLIC_BASE_URL: "www.gatekeeper-events.de"
+    restart: always
+    environment:
+      DATABASE_URL: "postgresql://gatekeeper:PASSWORD@gatekeeper-database:5432/gatekeeper?schema=public"
+      SMTP_HOST: ""
+      SMTP_PORT: ""
+      SMTP_EMAIL: ""
+      SMTP_PASSWORD: ""
+      HCAPTCHA_SECRET: ""
+    volumes:
+      - type: bind
+        source: ./data/public_uploads
+        target: /app/public/uploads
+      - type: bind
+        source: ./data/private_storage
+        target: /app/private/storage
